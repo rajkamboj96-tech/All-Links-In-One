@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Project App</title>
+    <style>
+        /* Basic body setup */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f9;
+            height: 100vh;
+            overflow: hidden; /* Prevents unwanted scrolling on the main window */
+        }
+
+        /* The main menu container holding all the buttons */
+        #menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            gap: 15px;
+            height: 100%;
+            overflow-y: auto; /* Adds scrollbar just to the menu if needed */
+            box-sizing: border-box;
+        }
+
+        #menu h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        /* Styling the tool buttons */
+        .menu-btn {
+            padding: 15px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: #34495e;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 400px; /* Keeps buttons from getting too wide on large screens */
+            transition: background-color 0.2s ease, transform 0.1s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .menu-btn:hover {
+            background-color: #3498db;
+        }
+
+        .menu-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* The container for the iframe (hidden by default) */
+        #appContainer {
+            display: none; 
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* The iframe showing your linked tools */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* The tiny back button (hidden by default) */
+        #backBtn {
+            display: none;
+            position: fixed; /* Keeps it locked to the top left */
+            top: 15px;
+            left: 15px;
+            padding: 8px 15px;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            background-color: #e74c3c;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000; /* Ensures it stays on top of the iframe */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            transition: background-color 0.2s;
+        }
+
+        #backBtn:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="backBtn" onclick="goBack()">&#8592; Back</button>
+
+    <div id="menu">
+        <h2>Select a Tool</h2>
+        <button class="menu-btn" onclick="loadTool('https://rajkamboj96-tech.github.io/Data-Entry-With-Images/')">Data Entry With Images</button>
+        <button class="menu-btn" onclick="loadTool('https://rajkamboj96-tech.github.io/Super-Croper-Pro/')">Super Cropper Pro</button>
+        <button class="menu-btn" onclick="loadTool('https://rajkamboj96-tech.github.io/Large-Data-Entry-File/')">Large Data Entry</button>
+        <button class="menu-btn" onclick="loadTool('https://rajkamboj96-tech.github.io/Color-To-Text/')">Color To Text</button>
+        <button class="menu-btn" onclick="loadTool('https://rajkamboj96-tech.github.io/3-Tabs-OCR-Translator/')">3 Tabs OCR+To Lines+Translate</button>
+        <button class="menu-btn" onclick="loadTool('https://rajkamboj96-tech.github.io/Math-Calcultors-BMI-EMI-Int.-Etc.-/')">Math Calculators</button>
+        <button class="menu-btn" onclick="loadTool('https://rajkamboj96-tech.github.io/OCR-AND-TO-LINE-AND-TRANSLATE/')">All in One (OCR to Translate)</button>
+        <button class="menu-btn" onclick="loadTool('https://rajkamboj96-tech.github.io/Land-Measure/')">Land Measure Punjab</button>
+        <button class="menu-btn" onclick="loadTool('https://rajkamboj96-tech.github.io/Text-To-Speech-to-Text-Suite/')">Text to Speech to Text</button>
+        <button class="menu-btn" onclick="loadTool('https://rajkamboj96-tech.github.io/Text-Color-Gen/')">Text Color Generator</button>
+        <button class="menu-btn" onclick="loadTool('https://rajkamboj96-tech.github.io/Land-Measur-GPS/')">Land Measure With GPS</button>
+    </div>
+
+    <div id="appContainer">
+        <iframe id="appViewer" src=""></iframe>
+    </div>
+
+    <script>
+        function loadTool(url) {
+            // Set the iframe to the correct website
+            document.getElementById('appViewer').src = url;
+            
+            // Hide the menu
+            document.getElementById('menu').style.display = 'none';
+            
+            // Show the iframe container and the back button
+            document.getElementById('appContainer').style.display = 'block';
+            document.getElementById('backBtn').style.display = 'block';
+        }
+
+        function goBack() {
+            // Hide the iframe container and back button
+            document.getElementById('appContainer').style.display = 'none';
+            document.getElementById('backBtn').style.display = 'none';
+            
+            // Show the menu again
+            document.getElementById('menu').style.display = 'flex';
+            
+            // Optional: clear the iframe source so it doesn't keep running in the background
+            document.getElementById('appViewer').src = '';
+        }
+    </script>
+
+</body>
+</html>
