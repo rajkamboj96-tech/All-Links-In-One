@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -74,15 +74,15 @@
         #backBtn {
             display: none;
             position: fixed; /* Keeps it locked to the top left */
-            top: 15px;
-            left: 15px;
-            padding: 8px 15px;
-            font-size: 14px;
+            top: 5px; /* Moved further up */
+            left: 5px; /* Moved further left */
+            padding: 4px 8px; /* Made the button smaller */
+            font-size: 11px; /* Made the text smaller */
             font-weight: bold;
             color: white;
             background-color: #e74c3c;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px; /* Slightly smaller rounded corners */
             cursor: pointer;
             z-index: 1000; /* Ensures it stays on top of the iframe */
             box-shadow: 0 2px 5px rgba(0,0,0,0.3);
@@ -138,7 +138,7 @@
             // Show the menu again
             document.getElementById('menu').style.display = 'flex';
             
-            // Optional: clear the iframe source so it doesn't keep running in the background
+            // Clear the iframe source so it doesn't keep running in the background
             document.getElementById('appViewer').src = '';
         }
     </script>
