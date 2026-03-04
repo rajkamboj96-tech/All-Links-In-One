@@ -70,19 +70,19 @@
             border: none;
         }
 
-        /* The tiny back button (hidden by default) */
+        /* The tiny back button (Default: Desktop View - Top Left) */
         #backBtn {
             display: none;
-            position: fixed; /* Keeps it locked to the top left */
-            top: 5px; /* Moved further up */
-            left: 5px; /* Moved further left */
-            padding: 4px 8px; /* Made the button smaller */
-            font-size: 11px; /* Made the text smaller */
+            position: fixed; /* Keeps it locked to the screen */
+            top: 5px; 
+            left: 5px; 
+            padding: 4px 8px; 
+            font-size: 11px; 
             font-weight: bold;
             color: white;
             background-color: #e74c3c;
             border: none;
-            border-radius: 4px; /* Slightly smaller rounded corners */
+            border-radius: 4px; 
             cursor: pointer;
             z-index: 1000; /* Ensures it stays on top of the iframe */
             box-shadow: 0 2px 5px rgba(0,0,0,0.3);
@@ -91,6 +91,22 @@
 
         #backBtn:hover {
             background-color: #c0392b;
+        }
+
+        /* MOBILE VIEW ADJUSTMENTS */
+        @media (max-width: 600px) {
+            #backBtn {
+                top: auto; /* Removes the top positioning */
+                bottom: 15px; /* Moves it to the bottom */
+                left: 10px; /* Keeps it on the left */
+                padding: 3px 6px; /* Makes it even smaller */
+                font-size: 10px; /* Makes the text even smaller */
+                opacity: 0.8; /* Makes it slightly transparent so it doesn't block content */
+            }
+            
+            #backBtn:active {
+                opacity: 1; /* Makes it solid when tapped */
+            }
         }
     </style>
 </head>
